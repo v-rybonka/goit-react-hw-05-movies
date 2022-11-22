@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from './Layout/Layout';
 import { lazy } from 'react';
 
@@ -13,7 +13,7 @@ export const App = () => {
         <Route index path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:movieId/*" element={<MovieDetails />} />
-        <Route path="*" element={<div>NotFound </div>} />
+        <Route path="*" element={<Navigate replace to="/" />} />
       </Route>
     </Routes>
   );
