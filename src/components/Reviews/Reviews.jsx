@@ -1,6 +1,7 @@
 import { fetchMovieReviews } from 'api/api-movies';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { ReviewsText, ReviewsTitle } from './Reviews.styled';
 
 const Reviews = ({ id }) => {
   const [reviews, setReviews] = useState([]);
@@ -14,10 +15,8 @@ const Reviews = ({ id }) => {
           {reviews.map(({ author, content, id }) => (
             <li key={id}>
               <div>
-                <div>
-                  <h3>Author: {author}</h3>
-                  <p>{content}</p>
-                </div>
+                <ReviewsTitle>Author: {author}</ReviewsTitle>
+                <ReviewsText>{content}</ReviewsText>
               </div>
             </li>
           ))}

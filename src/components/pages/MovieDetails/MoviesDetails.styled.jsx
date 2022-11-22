@@ -25,6 +25,7 @@ export const Text = styled.p`
   font-size: 16px;
   font-weight: 400;
   margin-bottom: 10px;
+  text-align: justify;
 `;
 export const LinkNav = styled(NavLink)`
   display: inline-block;
