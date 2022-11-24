@@ -1,14 +1,16 @@
 import { useState } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { fetchMovieCast } from 'api/api-movies';
 import { useEffect } from 'react';
 import { CastImg, CastItem, CastList } from './Cast.styled';
 import potoPlaceholder from '../img/photo_placeholder.png';
-const Cast = ({ id }) => {
+import { useParams } from 'react-router-dom';
+const Cast = () => {
+  const { movieId } = useParams();
   const [cast, setCast] = useState(null);
   useEffect(() => {
-    fetchMovieCast(id).then(setCast);
-  }, [id]);
+    fetchMovieCast(movieId).then(setCast);
+  }, [movieId]);
 
   return (
     <>
@@ -35,6 +37,6 @@ const Cast = ({ id }) => {
 
 export default Cast;
 
-Cast.propTypes = {
-  id: PropTypes.string.isRequired,
-};
+// Cast.propTypes = {
+//   id: PropTypes.string.isRequired,
+// };

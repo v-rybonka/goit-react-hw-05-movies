@@ -1,9 +1,9 @@
 import { fetchMovieDetails } from 'api/api-movies';
-import { lazy, Suspense } from 'react';
+import { Suspense } from 'react';
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import poster from '../../img/placeholder_poster.jpeg';
-import { Route, Routes, useLocation, useParams } from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import {
   Container,
   LinkBtn,
@@ -14,9 +14,6 @@ import {
   Wrapper,
   WrapperText,
 } from './MoviesDetails.styled';
-
-const Cast = lazy(() => import('../../../components/Cast/Cast'));
-const Reviews = lazy(() => import('../../../components/Reviews/Reviews'));
 
 const INITIAL_DATA = {
   title: '',
@@ -71,7 +68,7 @@ const MovieDetails = () => {
         </li>
       </ul>
       <Suspense fallback={<h1>LOADING...</h1>}>
-        <Routes></Routes>
+        <Outlet />
       </Suspense>
     </Container>
   );

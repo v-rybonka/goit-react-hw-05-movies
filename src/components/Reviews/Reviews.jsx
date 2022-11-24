@@ -1,13 +1,16 @@
 import { fetchMovieReviews } from 'api/api-movies';
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import { ReviewsText, ReviewsTitle } from './Reviews.styled';
+import { useParams } from 'react-router-dom';
 
-const Reviews = ({ id }) => {
+const Reviews = () => {
+  const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
+
   useEffect(() => {
-    fetchMovieReviews(id).then(setReviews);
-  }, [id]);
+    fetchMovieReviews(movieId).then(setReviews);
+  }, [movieId]);
   return (
     <>
       {reviews.length > 0 ? (
@@ -30,6 +33,6 @@ const Reviews = ({ id }) => {
 
 export default Reviews;
 
-Reviews.propTypes = {
-  id: PropTypes.string.isRequired,
-};
+// Reviews.propTypes = {
+//   id: PropTypes.string.isRequired,
+// };
