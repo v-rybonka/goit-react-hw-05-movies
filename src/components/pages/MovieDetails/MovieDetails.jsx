@@ -71,10 +71,7 @@ const MovieDetails = () => {
         </li>
       </ul>
       <Suspense fallback={<h1>LOADING...</h1>}>
-        <Routes>
-          <Route path="cast" element={<Cast id={movieId} />} />
-          <Route path="reviews" element={<Reviews id={movieId} />} />
-        </Routes>
+        <Routes></Routes>
       </Suspense>
     </Container>
   );
